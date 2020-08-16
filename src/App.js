@@ -34,17 +34,20 @@ function App() {
           playlists,
         });
       });
-      // dispatch({
-      //   type: "SET_PLAYLISTS",
-      //   playlists: "dddd",
-      // });
+
+      spotify.getPlaylist("31l7YeCAA0nJ5DHmpZIJh8").then((response) => {
+        dispatch({
+          type: "SET_DISCOVER_WEEKLY",
+          discover_weekly: response,
+        });
+      });
     }
   }, []);
 
   return (
     <div className="app">
-      {/* {token ? <Player spotify={spotify} /> : <Login />} */}
-      <Player spotify={spotify} />
+      {token ? <Player spotify={spotify} /> : <Login />}
+      {/* <Player spotify={spotify} /> */}
     </div>
   );
 }
