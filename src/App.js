@@ -41,7 +41,6 @@ function App() {
     }
   }, []);
 
-  console.log(playlists);
   return (
     <div className="app">
       {/* {token ? <Player spotify={spotify} /> : <Login />} */}
