@@ -3,6 +3,8 @@ export const initialState = {
   playlists: [],
   playing: false,
   item: null,
+  ids: [],
+  indexList: 0,
 };
 
 const reducer = (state, action) => {
@@ -20,15 +22,23 @@ const reducer = (state, action) => {
       };
 
     case "SET_PLAYLISTS":
+      const playlistId = action.playlists.items.map((item) => item.id);
+
       return {
         ...state,
         playlists: action.playlists,
+        ids: playlistId,
       };
 
     case "SET_DISCOVER_WEEKLY":
       return {
         ...state,
         discover_weekly: action.discover_weekly,
+      };
+
+    case "CHANGE_INDEX":
+      return {
+        indexList: action.indexList,
       };
 
     default:

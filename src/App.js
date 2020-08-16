@@ -9,7 +9,7 @@ import { useDataLayerValue } from "./reducer/DataLayer";
 const spotify = new SpotifyWebApi();
 
 function App() {
-  const [{ user, playlists }, dispatch] = useDataLayerValue();
+  const [{ user, playlists, ids, indexList }, dispatch] = useDataLayerValue();
   const [token, setTokon] = useState(null);
 
   useEffect(() => {
@@ -32,13 +32,6 @@ function App() {
         dispatch({
           type: "SET_PLAYLISTS",
           playlists,
-        });
-      });
-
-      spotify.getPlaylist("31l7YeCAA0nJ5DHmpZIJh8").then((response) => {
-        dispatch({
-          type: "SET_DISCOVER_WEEKLY",
-          discover_weekly: response,
         });
       });
     }

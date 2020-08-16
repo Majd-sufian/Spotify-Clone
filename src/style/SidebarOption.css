@@ -9,6 +9,10 @@
   align-items: center;
 }
 
+.OnClick {
+  color: white;
+}
+
 .sidebarOption:hover {
   color: white;
 }

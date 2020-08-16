@@ -8,7 +8,7 @@ import { useDataLayerValue } from "../reducer/DataLayer";
 
 function Sidebar() {
   const [{ playlists }, dispatch] = useDataLayerValue();
-  console.log(playlists);
+
   return (
     <div className="sidebar">
       <div className="sidebar__heading">
@@ -29,7 +29,10 @@ function Sidebar() {
       <hr />
 
       {playlists?.items?.map((playlist) => (
-        <SidebarOption option={playlist.name} />
+        <SidebarOption
+          option={playlist.name}
+          index={playlists?.items?.indexOf(playlist)}
+        />
       ))}
     </div>
   );
