@@ -12,13 +12,17 @@ function Body({ spotify }) {
       <Header spotify={spotify} />
       <div className="body__info">
         <img
-          src="https://newjams-images.scdn.co/v2/discover-weekly/pOdnPTRma6KZzKPNRN9oUA==/bmVuZW5lbmVuZW5lbmVuZQ==/default"
-          alt=""
+          src={discover_weekly?.images[0].url}
+          alt={discover_weekly?.owner.display_name}
         />
         <div className="body__infoText">
           <strong>PLAYLIST</strong>
           <h2>Discover Weekly</h2>
-          <p>descriotion...</p>
+          <p>
+            {discover_weekly?.description.length === 0
+              ? "description..."
+              : discover_weekly?.description}
+          </p>
         </div>
       </div>
     </div>
