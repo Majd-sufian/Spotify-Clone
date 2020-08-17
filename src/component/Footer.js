@@ -15,6 +15,14 @@ function Footer() {
   const [{ discover_weekly }, dispatch] = useDataLayerValue();
   const [songIndex, setSongIndex] = useState(0);
 
+  const shuffleSong = () => {
+    setSongIndex(
+      Math.floor(
+        Math.random() * (discover_weekly?.tracks?.items.length - 0) + 0
+      )
+    );
+  };
+
   const previousSong = () => {
     // setSongIndex(songIndex + 1);
     let song = songIndex;
@@ -38,20 +46,22 @@ function Footer() {
         <img
           className="footer__albumLogo"
           src={
-            discover_weekly?.tracks?.items[songIndex].track.album.images[0].url
+            discover_weekly?.tracks?.items[songIndex]?.track?.album?.images[0]
+              ?.url
           }
-          // src="https://upload.wikimedia.org/wikipedia/en/thumb/7/74/Usher_-_Confessions_album_cover.jpg/220px-Usher_-_Confessions_album_cover.jpg"
           alt=""
         />
         <div className="footer__songInfo">
-          <h4>{discover_weekly?.tracks?.items[songIndex].track.album.name}</h4>
+          <h4>
+            {discover_weekly?.tracks?.items[songIndex]?.track?.album?.name}
+          </h4>
           <p>
-            {discover_weekly?.tracks?.items[songIndex].track.artists[0].name}
+            {discover_weekly?.tracks?.items[songIndex]?.track?.artists[0]?.name}
           </p>
         </div>
       </div>
       <div className="footer__center">
-        <ShuffleIcon className="footer__green" />
+        <ShuffleIcon onClick={shuffleSong} className="footer__green" />
         <SkipPreviousIcon onClick={previousSong} className="footer__icon" />
         <PlayCircleOutlineIcon fontSize="large" className="footer__icon" />
         <SkipNextIcon onClick={nextSong} className="footer__icon" />
