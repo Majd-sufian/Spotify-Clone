@@ -49,6 +49,7 @@
 
 .body__songs {
   margin: 20px -30px;
+  overflow-y: scroll;
 }
 
 .body__shuffle:hover {

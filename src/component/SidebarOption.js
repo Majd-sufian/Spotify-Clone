@@ -20,7 +20,6 @@ function SidebarOption({ option = "test", Icon, index = 0 }) {
     });
   };
 
-  console.log(click);
   return (
     <div onClick={changeIndex} className="sidebarOption">
       {Icon && <Icon className="sidebarOption__icon" />}
